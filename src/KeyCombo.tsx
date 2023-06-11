@@ -6,6 +6,37 @@ type Props = {
     onKeyComboCallback: (keys: string[]) => void;
 };
 
+const readKey = (event: KeyboardEvent<HTMLInputElement>) => {
+    event.preventDefault();
+
+    const key = event.key;
+
+    switch (key) {
+        case ' ':
+            return 'Space';
+        case 'Escape':
+            return 'Esc';
+        case 'ControlLeft':
+        case 'ControlRight':
+        case 'Control':
+            return 'Ctrl';
+        case 'AltLeft':
+        case 'AltRight':
+        case 'Alt':
+            return 'Alt';
+        case 'ShiftLeft':
+        case 'ShiftRight':
+        case 'Shift':
+            return 'Shift';
+        case 'MetaLeft':
+        case 'MetaRight':
+        case 'Meta':
+            return 'Meta';
+    }
+
+    return key.toUpperCase();
+};
+
 export const KeyCombo = forwardRef<HTMLInputElement, Props>(
     ({ keys, setKeys, onKeyComboCallback }, ref) => {
         const [pressedKeys, setPressedKeys] = useState<string[]>([]);
@@ -13,7 +44,7 @@ export const KeyCombo = forwardRef<HTMLInputElement, Props>(
         const onKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
             event.preventDefault();
 
-            const key = event.key;
+            const key = readKey(event);
             setKeys([...keys, key]);
             setPressedKeys([...pressedKeys, key]);
         };
@@ -21,7 +52,9 @@ export const KeyCombo = forwardRef<HTMLInputElement, Props>(
         const onKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
             event.preventDefault();
 
-            const newPressedKeys = pressedKeys.filter(key => key !== event.key);
+            const newPressedKeys = pressedKeys.filter(
+                key => key !== readKey(event)
+            );
             setPressedKeys(newPressedKeys);
 
             if (pressedKeys.length > 0 && newPressedKeys.length === 0) {

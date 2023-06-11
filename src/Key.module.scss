@@ -1,0 +1,20 @@
+$cute-pink: #ff9ff3;
+$cute-pink-10: #ffe3fa;
+$cool-blue: #7ed6df;
+$cool-blue-10: #b7eaf5;
+$light-green: #badc58;
+$light-green-10: #e2f3bf;
+$warm-yellow: #f9ca24;
+$light-yellow: #f9ca24;
+$dark-purple: #30336b;
+$key-color: $cute-pink;
+$key-color-light: $cute-pink-10;
+
+.key {
+    padding: 0.6em 0.8em;
+    border-radius: 8px;
+    border: 2px solid $key-color;
+    background-color: $key-color-light;
+    display: flex;
+    align-items: center;
+}

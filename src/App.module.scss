@@ -1,42 +1,50 @@
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+.container {
+    // Divide two divs in half
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    height: 100%;
+    width: 100vw;
+    color: white;
+    // Set min font size, but allow it to grow
+    font-size: clamp(10px, 2.5vw, 20px);
+    // font-size: calc(10px + 2vmin);
+    padding: auto;
 }
 
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
+.editorSection {
+    display: flex;
+    gap: 1em;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.inputSection {
+    height: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
+.previewSection {
+    background-color: #fff;
+    color: black;
+    border-radius: 3px;
 }
 
-.card {
+.previewContainer {
+    background-color: #fff;
+    height: 200mm;
+}
+
+.previewContainerContainer {
+    overflow-y: scroll;
     padding: 2em;
-}
-
-.read-the-docs {
-    color: #888;
 }

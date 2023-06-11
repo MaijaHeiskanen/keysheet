@@ -1,0 +1,16 @@
+.shortcutsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.container {
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 2em;
+    // A4 is 210 x 297 mm
+    min-height: 100%;
+    width: 150mm;
+}
